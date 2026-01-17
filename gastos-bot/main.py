@@ -1,5 +1,5 @@
 from config import TELEGRAM_BOT_TOKEN
 from bot.telegram_bot import boti
-from bot.commands import handle_text
+from services.expense_service import message_handler
 token = TELEGRAM_BOT_TOKEN
-boti(token, handle_text)
+boti(token, message_handler)
