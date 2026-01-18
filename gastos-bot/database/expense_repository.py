@@ -1,4 +1,5 @@
-from db import conexion
+from database.db import conexion
+from datetime import datetime
 
 def create_table():
     conn = conexion()
@@ -14,7 +15,9 @@ def create_table():
     conn.commit()
     conn.close()
 
-def insert_expense(amount, category, date):
+def insert_expense(amount, category, date=None):
+    if date is None:
+        date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     conn = conexion()
     cursor = conn.cursor()
     cursor.execute(
@@ -23,7 +26,7 @@ def insert_expense(amount, category, date):
     )
     conn.commit()
     conn.close()
-    
+
 def get_all_expenses():
     conn = conexion()
     cursor = conn.cursor()

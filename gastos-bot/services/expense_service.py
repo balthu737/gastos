@@ -1,4 +1,4 @@
-def message_handler(text):
+def message_handler(text, funcion):
     texto = text.lower().strip().split()
     if not texto:
         return "Formato inválido"
@@ -10,4 +10,5 @@ def message_handler(text):
         return "El monto debe ser un número"
     monto = int(texto[1])
     categoria = texto[2]
+    funcion(monto,categoria)
     print(f"Gasto registrado: {monto} en {categoria}")
