@@ -1,8 +1,8 @@
 from config import TELEGRAM_BOT_TOKEN
 from bot.telegram_bot import boti
-from services.expense_service import message_handler
+from services.expenses import message_handler
 from database.db import conexion
-from database.expense_repository import create_table, insert_expense, get_all_expenses
+from database.queries import create_table, insert_expense, get_all_expenses
 
 token = TELEGRAM_BOT_TOKEN
 def handler(text):
